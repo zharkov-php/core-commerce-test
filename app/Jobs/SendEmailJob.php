@@ -15,23 +15,13 @@ class SendEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $email;
+    protected Email $email;
 
-    /**
-     * Створити новий Job.
-     *
-     * @param  Email  $email
-     */
     public function __construct(Email $email)
     {
         $this->email = $email;
     }
 
-    /**
-     * Виконати завдання.
-     *
-     * @return void
-     */
     public function handle(): void
     {
         try {
