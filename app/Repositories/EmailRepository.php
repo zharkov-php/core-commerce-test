@@ -24,4 +24,9 @@ class EmailRepository
         ]);
     }
 
+    public function getSent()
+    {
+        return Email::where('status', 'sent')->get();
+    }
+
 }

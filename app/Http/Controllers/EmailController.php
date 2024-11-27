@@ -50,4 +50,14 @@ class EmailController extends Controller
             'data' => EmailResource::collection($emails),
         ]);
     }
+
+    public function listSentEmails()
+    {
+        $sentEmails = $this->emailRepository->getSent();
+
+        return response()->json([
+            'message' => 'Sent emails retrieved successfully.',
+            'data' => $sentEmails,
+        ]);
+    }
 }

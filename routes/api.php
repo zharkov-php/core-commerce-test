@@ -10,3 +10,4 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/emails', [EmailController::class, 'submitEmail']);
 Route::get('/emails', [EmailController::class, 'listEmails']);
+Route::get('/emails/sent', [EmailController::class, 'listSentEmails']);
