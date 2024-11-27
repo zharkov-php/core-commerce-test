@@ -8,6 +8,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('/emails', [EmailController::class, 'submitEmail']);
-Route::get('/emails', [EmailController::class, 'listEmails']);
-Route::get('/emails/sent', [EmailController::class, 'listSentEmails']);
+Route::prefix('emails')->group(function () {
+    Route::post('/', [EmailController::class, 'submitEmail']);
+    Route::get('/', [EmailController::class, 'listEmails']);
+    Route::get('/sent', [EmailController::class, 'listSentEmails']);
+});
